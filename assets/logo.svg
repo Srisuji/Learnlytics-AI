@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" width="220" role="img" aria-label="Learnlytics AI logo">
+  <defs>
+    <!-- Background Gradient for Badge -->
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081A30"/>
+      <stop offset="50%" stop-color="#0B2342"/>
+      <stop offset="100%" stop-color="#102B4D"/>
+    </linearGradient>
+
+    <!-- neonPulse: electric blue #00A6FF to neon cyan #00E5FF gradient -->
+    <linearGradient id="neonPulse" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00A6FF"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+
+    <!-- softGlow: subtle Gaussian blur glow filter -->
+    <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- badgeGlow: soft cyan drop-shadow filter -->
+    <filter id="badgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00E5FF" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded emblem badge with badgeGlow and neon cyan border -->
+  <rect x="2" y="6" width="44" height="44" rx="12" fill="url(#badgeGrad)" stroke="url(#neonPulse)" stroke-width="1.4" filter="url(#badgeGlow)"/>
+  
+  <!-- Graduation Cap base with softGlow accents -->
+  <!-- Cap Diamond Top -->
+  <polygon points="24,14 39,21 24,28 9,21" fill="#F1F7FF" filter="url(#softGlow)"/>
+  <!-- Cap Skull Cap Underneath -->
+  <path d="M15 24.2v4.8c0 2.2 4 4 9 4s9-1.8 9-4v-4.8" fill="none" stroke="#F1F7FF" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Cap Tassel & analytics pulse node -->
+  <path d="M34 21.5v7.5" fill="none" stroke="url(#neonPulse)" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="34" cy="29.5" r="1.6" fill="#00E5FF" filter="url(#softGlow)"/>
+
+  <!-- Analytics pulse wave with neonPulse gradient and softGlow -->
+  <path d="M12 40h4l3-6 5 8 4-5 3 3h3" fill="none" stroke="url(#neonPulse)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+
+  <!-- Brand Typography -->
+  <text x="56" y="29" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="800" fill="#F1F7FF" letter-spacing="-0.3">Learnlytics <tspan fill="#00E5FF" font-weight="800" filter="url(#softGlow)">AI</tspan></text>
+  <!-- Tagline in Secondary Text -->
+  <text x="56" y="44" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#A9BCD6">Understand Performance. Unlock Potential.</text>
+</svg>

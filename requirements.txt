@@ -1,0 +1,8 @@
+streamlit>=1.35
+pandas>=2.0
+numpy>=1.24
+plotly>=5.18
+pytest>=7.4
+openai>=1.40.0
+# Optional: only needed if you enable the legacy wording polish (see .env.example)
+# anthropic>=0.40

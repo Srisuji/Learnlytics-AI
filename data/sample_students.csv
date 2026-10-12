@@ -1,0 +1,5 @@
+student_id,name,department,semester,attendance_rate,academic_score,assignment_rate,email,mentor
+EX001,Sample Student One,Computer Science,4,88.5,72.0,90.0,ex001@example.edu,Sample Mentor
+EX002,Sample Student Two,Electronics,2,68.0,45.5,55.0,ex002@example.edu,Sample Mentor
+EX003,Sample Student Three,Mechanical,6,92.0,81.0,,,
+EX004,Sample Student Four,Civil,4,74.0,,66.0,,
