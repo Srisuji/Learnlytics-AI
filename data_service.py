@@ -314,7 +314,7 @@ def get_screened_df(db_path=None, config=None, user=None):
     df["risk_category"] = cats
     df["triggered_count"] = counts
     df["reasons"] = reasons
-    df["review_status"] = df["student_id"].map(status).fillna("New")
+    df["review_status"] = df["student_id"].map(status).astype(object).fillna("New")
     return df
 
 
@@ -444,7 +444,7 @@ def follow_up_queue(db_path=None):
     if df.empty:
         return pd.DataFrame(columns=cols)
     status = _review_status_map(db_path)
-    df["review_status"] = df["student_id"].map(status).fillna("New")
+    df["review_status"] = df["student_id"].map(status).astype(object).fillna("New")
     df = df[df["review_status"] != "Resolved"].copy()
     today = dt.date.today().isoformat()
     df["due"] = df["follow_up_date"].apply(

@@ -121,6 +121,7 @@ class StreamlitUIVerificationTests(unittest.TestCase):
 
         student_pages = [
             "My Progress",
+            "AI Tutor",
             "My Goals",
             "My Profile & Settings",
         ]

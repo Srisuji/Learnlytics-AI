@@ -1,0 +1,17 @@
+# Netlify configuration for Learnlytics AI Next.js frontend
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Optional reverse-proxy rewrite for API calls if hosting backend on another domain
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://your-backend-api.onrender.com/api/:splat"
+#   status = 200
+#   force = true
+
