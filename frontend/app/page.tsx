@@ -31,8 +31,22 @@ interface Student {
   review_status?: string;
 }
 
+const getApiBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
+  }
+  if (typeof window !== "undefined") {
+    const host = window.location.hostname;
+    if (host === "localhost" || host === "127.0.0.1") {
+      return "http://127.0.0.1:8000";
+    }
+    return "";
+  }
+  return "http://127.0.0.1:8000";
+};
+
 export default function Home() {
-  const [apiUrl] = useState(() => process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000");
+  const [apiUrl] = useState(getApiBaseUrl);
   const [apiConnected, setApiConnected] = useState<boolean | null>(null);
   const [kpis, setKpis] = useState<KPIs | null>(null);
   const [students, setStudents] = useState<Student[]>([]);
@@ -42,7 +56,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const activeUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+    const activeUrl = getApiBaseUrl();
 
     async function fetchData() {
       try {

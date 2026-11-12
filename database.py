@@ -14,7 +14,16 @@ from contextlib import contextmanager
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-DEFAULT_DB_PATH = os.environ.get("EDUPULSE_DB_PATH", str(BASE_DIR / "data" / "edupulse.db"))
+
+def get_default_db_path() -> str:
+    env_path = os.environ.get("EDUPULSE_DB_PATH")
+    if env_path:
+        return env_path
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        return "/tmp/edupulse.db"
+    return str(BASE_DIR / "data" / "edupulse.db")
+
+DEFAULT_DB_PATH = get_default_db_path()
 
 
 class DatabaseError(Exception):
